@@ -3,9 +3,9 @@
 \pointAndClickOff
 
 \header {
-    title =  catorce
-    encodingsoftware =  "MuseScore 3.6.2"
-    encodingdate =  "2021-11-05"
+    title =  "The Fourth In A Long Line of Pieces"
+    subtitle = "These Motifs will be the death of me, quintuplets are annoying and don't fit with anything."
+    composer = "Jasper Avtarovski"
     }
 
 #(set-global-staff-size 19.997485714285716)
@@ -28,7 +28,8 @@
     }
 PartPOneVoiceOne =  \relative c' {
     \clef "bass" \time 2/4 \key c \major \transposition c | % 1
-    \tempo 4=62 R2*4 \break ^\markup{ \bold {.7} } | % 5
+    \tempo 4=62
+    R2*4 \break | % 5
     R2*12 \break | % 17
     R2*16 \bar "|."
     }
@@ -36,7 +37,8 @@ PartPOneVoiceOne =  \relative c' {
 PartPTwoVoiceOne =  \relative c' {
     \clef "treble" \time 2/4 \key c \major | % 1
     R2*4 \break | % 5
-    R2*12 \break | % 17
+    R2*2 \break | % 6
+    \times 4/5 {c16 c c c c c c c c c} | % 7
     R2*16 \bar "|."
     }
 
@@ -139,6 +141,6 @@ PartPFourVoiceFive =  \relative c' {
         >>
     \layout {}
     % To create MIDI output, uncomment the following line:
-    %  \midi {\tempo 4 = 62.7 }
+    \midi {\tempo 4 = 62 }
     }
 
