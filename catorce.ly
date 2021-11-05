@@ -30,16 +30,27 @@ PartPOneVoiceOne =  \relative c' {
     \clef "bass" \time 2/4 \key c \major \transposition c | % 1
     \tempo 4=62
     R2*4 \break | % 5
-    R2*12 \break | % 17
-    R2*16 \bar "|."
+    R2*2 \break | % 17
+    c,16 c r r d d r r
+    e e r r f f r r
+    g g r r a a r r
+    b b r r c c r r
+    d d r r e e r r
+    f f r r g g r r
+    R2*10 \bar "|."
     }
 
 PartPTwoVoiceOne =  \relative c' {
     \clef "treble" \time 2/4 \key c \major | % 1
     R2*4 \break | % 5
     R2*2 \break | % 6
-    \times 4/5 {c16 c c c c c c c c c} | % 7
-    R2*16 \bar "|."
+    \times 4/5 {c'16 c c c c d d d d d} | % 7
+    \times 4/5 {e16 e e e e f f f f f} | % 7
+    \times 4/5 {g g g g g a a a a a} | % 7
+    \times 4/5 {b b b b b g g g g g} | % 7
+    \times 4/5 {a a a a a b b b b b} | % 7
+    \times 4/5 {c c c c c g g g g g} | % 7
+    R2*10 \bar "|."
     }
 
 PartPThreeVoiceOne =  \relative c {
@@ -72,22 +83,46 @@ PartPThreeVoiceOne =  \relative c {
         \stemDown d8 -. [ \stemDown es8 -. \stemDown e8 -. ] }
     | % 7
     R2*10 \break | % 17
-    R2*16 \bar "|."
+    R2*6 \bar "|."
     }
 
 PartPFourVoiceOne =  \relative c' {
     \clef "treble" \time 2/4 \key c \major | % 1
     R2*4 \break | % 5
-    R2*12 \break | % 17
-    R2*16 \bar "|."
+    R2*2 \break | % 17
+    r16 r c c r r d d 
+    r r e e r r f f 
+    r r g g r r a a 
+    r r b b r r c c 
+    r r d d r r e e
+    r r f f r r g g
+    R2*10 \bar "|."
     }
 
 PartPFourVoiceFive =  \relative c' {
     \clef "bass" \time 2/4 \key c \major | % 1
     R2*4 \break | % 5
     R2*12 \break | % 17
-    R2*16 \bar "|."
+    R2*6 \bar "|."
     }
+
+PartPFiveVoiceOne = \drummode { 
+% Stems Up notes go here
+  <hh bd>8[ hh] <hh sn>[ hh] <hh bd>[ <hh bd>] <hh sn>[ hh]
+}
+
+drh = \drummode {
+    cymc4.^"crash" hhc16^"h.h." hh hhc8 hho hhc8 hh16 hh
+    hhc4 r4 r2
+}
+drl = \drummode {
+    bd4 sn8 bd bd4 << bd ss >>
+    bd8 tommh tommh bd toml toml bd tomfh16 tomfh
+}
+timb = \drummode {
+    timh4 ssh timl8 ssh r timh r4
+    ssh8 timl r4 cb8 cb
+}
 
 
 % The score definition
@@ -138,6 +173,20 @@ PartPFourVoiceFive =  \relative c' {
                 >>
             >>
         
+        >>
+        \new DrumStaff \with {
+            instrumentName = "timbales"
+            drumStyleTable = #timbales-style
+            \override StaffSymbol.line-count = #2
+            \override BarLine.bar-extent = #'(-1 . 1)
+        }
+        <<
+            \timb
+        >>
+        \new DrumStaff \with { instrumentName = "drums" }
+        <<
+            \new DrumVoice { \stemUp \drh }
+            \new DrumVoice { \stemDown \drl }
         >>
     \layout {}
     % To create MIDI output, uncomment the following line:
