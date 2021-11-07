@@ -13,7 +13,7 @@ Bass = \relative c {
 }
 bass = {
   \global
-  \set Staff.instrumentName = #"Bass"
+  \set Staff.instrumentName = "Bass"
   \clef bass
   <<
     \Bass
@@ -26,6 +26,7 @@ up = \drummode {
   hh4 <hh sn> hh <hh sn>
   hh4 <hh sn> hh <hh sn>
 }
+
 down = \drummode {
   \voiceTwo
   bd4 s bd s
@@ -36,15 +37,17 @@ down = \drummode {
 drumContents = {
   \global
   <<
-    \set DrumStaff.instrumentName = #"Drums"
+    \set DrumStaff.instrumentName = "Drums"
     \new DrumVoice \up
     \new DrumVoice \down
   >>
 }
 
 \score {
-  \new Staff = "bass" \bass
-  \new DrumStaff \drumContents
+  <<
+    \new Staff = "bass" \bass
+    \new DrumStaff \drumContents
+  >>
 
   \layout {}
   \midi {}
