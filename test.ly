@@ -37,7 +37,7 @@ DBass = \relative c {
   \Key
   c8 cis 
   \times 2/3 {d es e}
-  c16 cis r
+  r16 c cis r
   \times 2/3 {d8 es e}
 }
 
