@@ -33,12 +33,19 @@ Uke = \relative c {
   R2*10
 }
 
-DBass = \relative c {
-  \Key
+DBMotif = \relative c {
   c8 cis 
   \times 2/3 {d es e}
   r16 c cis r
   \times 2/3 {d8 es e}
+}
+
+DBass = \relative c {
+  \Key
+  \DBMotif
+  \DBMotif
+  \DBMotif
+  R2*16
 }
 
 up = \drummode {
@@ -46,12 +53,28 @@ up = \drummode {
   hh4 <hh sn> hh <hh sn>
   hh4 <hh sn> hh <hh sn>
   hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
+  hh4 <hh sn> hh <hh sn>
 }
 
 down = \drummode {
   \voiceTwo
-  bd8 bd8 s bd4 s
+  bd8 bd8 s4 bd4 s
   bd4 s bd s
+  bd4 s bd s
+  bd8 bd8 s4 bd4 s
+  bd4 s bd s
+  bd4 s bd s
+  bd8 bd8 s4 bd4 s
+  bd4 s bd s
+  bd4 s bd s
+  bd8 bd8 s4 bd4 s
   bd4 s bd s
 }
 
